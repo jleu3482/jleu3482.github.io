@@ -1,3 +1,4 @@
+<?php require_once("res/x5engine.php"); ?>
 <!DOCTYPE html><!-- HTML5 -->
 <html lang="en" dir="ltr">
 	<head>
@@ -16,12 +17,11 @@
 		<script type="text/javascript" src="res/x5cartengine.js"></script>
 		<script type="text/javascript" src="res/l10n.js"></script>
 		<script type="text/javascript" src="res/x5settings.js"></script>
-		<script type="text/javascript">x5engine.imQueue.push_init("x5engine.imAdv.imShowAdv(400, 100, 'images/40135_k2bfbo.jpg', '', 'index.html')");</script>
 		
 		
-		<title>New Project</title>
-		
-		
+		<title>Search - New Project</title>
+		<!-- CSS -->
+		<script type="text/javascript">x5engine.imQueue.push_init('x5engine.imSearch.Load()')</script>
 	</head>
 	<body>
 		<div id="imPage">
@@ -33,7 +33,7 @@
 			<a id="imGoToMenu"></a><p class="imHidden">Main menu</p>
 			<div id="imMnMn" class="auto">
 				<ul class="auto">
-					<li id="imMnMnNode0" class="imMnMnCurrent imMnMnFirst">
+					<li id="imMnMnNode0"class="imMnMnFirst">
 						<a href="index.html">
 							<span class="imMnMnFirstBg">
 								<span class="imMnMnTxt"><span class="imMnMnImg"></span>Home Page</span>
@@ -81,8 +81,10 @@
 			<div id="imContentGraphics"></div>
 			<div id="imContent">
 				<a id="imGoToCont"></a>
-				<div style="height: 15px;">&nbsp;</div>
-				<div id="imFooPad" style="height: 450px; float: left;">&nbsp;</div><div id="imBtMn"><a href="index.html">Home Page</a> | <a href="---.html">中国人</a> | <a href="page-4.html">Level 1</a> | <a href="page-2.html">Page 2</a> | <a href="page-3.html">Page 3</a> | <a href="imsitemap.html">General Site Map</a></div>
+				<?php
+$search = new imSearch();
+$search->search(@$_GET['search'], @$_GET['page']);
+?>
 				<div class="imClear"></div>
 			</div>
 		</div>
